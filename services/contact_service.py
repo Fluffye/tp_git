@@ -13,3 +13,11 @@ class ContactService:
 
     def get_contacts(self) -> List[Contact]:
         return self.contacts
+
+    def del_contact(self, name: str) -> str:
+        for contact in ContactService.self.contacts:
+            if contact.name == name:
+                self.contacts.remove(contact)
+                return f"Contact {name} supprimé"
+            else:
+                return f"Le contact {name} n'existe pas"
